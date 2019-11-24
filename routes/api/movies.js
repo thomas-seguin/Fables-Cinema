@@ -82,22 +82,48 @@ router.get('/', async (req, res) => {
 router.delete('/:id', auth, async (req, res) => {
     try {
         const movie = await Movie.findById(req.params.id);
+
         if (!movie) {
-            return res.status(400).json({
-                msg: 'Movie Not Found'
+            return res.status(404).json({
+                msg: 'Movie not found'
             });
         }
 
         await movie.remove();
 
         res.json({
-            msg: 'movie Removed'
+            msg: 'Movie Removed'
         });
     } catch (err) {
         console.error(err.message);
         if (err.kind === 'ObjectId') {
             return res.status(404).json({
-                msg: 'movie not found'
+                msg: 'Movie not found'
+            });
+        }
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route GET api/movies/:id
+// @desc Get Movie by ID
+// @access Public
+router.get('/:id', async (req, res) => {
+    try {
+        const movie = await Movie.findById(req.params.id);
+
+        if (!movie) {
+            return res.status(404).json({
+                msg: 'Movie not found'
+            });
+        }
+
+        res.json(movie);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({
+                msg: 'Movie not found'
             });
         }
         res.status(500).send('Server Error');

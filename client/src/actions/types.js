@@ -1,0 +1,10 @@
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const USER_LOADED = 'USER_LOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const LOGOUT = 'LOGOUT';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const MOVIE_SUCCESS = 'MOVIE_SUCCESS';
+export const MOVIE_FAIL = 'MOVIE_FAIL';
+export const GET_MOVIES = 'GET_MOVIES';
