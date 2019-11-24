@@ -20,7 +20,7 @@ const MovieItem = ({ deleteMovie, auth: { isAuthenticated, loading }, movie: { _
                 <h2>{name}</h2>
                 <h3>{rating}</h3>
                 <h3>{time}</h3>
-                {!loading && (isAuthenticated ? authLinks : guestLinks)}
+                {loading && (isAuthenticated ? authLinks : guestLinks)}
 
             </div>
         </div>

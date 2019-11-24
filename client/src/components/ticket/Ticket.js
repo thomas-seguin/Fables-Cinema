@@ -55,7 +55,7 @@ const Ticket = ({ buyTickets }) => {
                     />
                 </div>
 
-                <input type='submit' className='btn btn-primary' value='Register' />
+                <input type='submit' className='btn btn-primary' value='Purchase' />
 
             </form>
 
