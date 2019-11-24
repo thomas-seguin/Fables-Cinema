@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { addMovie } from '../../actions/movies';
 import PropTypes from 'prop-types';
+import Movies from '../movies/Movies';
 
 export const Dashboard = ({ setAlert, addMovie, isAuthenticated }) => {
     const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ export const Dashboard = ({ setAlert, addMovie, isAuthenticated }) => {
 
     const onSubmit = async e => {
         e.preventDefault();
+        console.log(movieName);
         addMovie(movieName, rating, time)
     };
     return (
@@ -52,9 +54,12 @@ export const Dashboard = ({ setAlert, addMovie, isAuthenticated }) => {
                         onChange={e => onChange(e)}
                     />
                 </div>
+
                 <input type='submit' className='btn btn-primary' value='Add Movie' />
 
             </form>
+            <div className="my-2"></div>
+            <Movies />
 
         </Fragment>
     )

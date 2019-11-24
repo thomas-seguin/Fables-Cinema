@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://tomseg:tomseg@fables-cinema-ae2em.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
+}

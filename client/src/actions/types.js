@@ -11,3 +11,4 @@ export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIE = 'GET_MOVIE';
 export const BUY_TICKET = 'BUY_TICKET';
 export const TICKET_FAIL = 'TICKET_FAIL';
+export const REMOVE_MOVIE = 'REMOVE_MOVIE';

@@ -6,7 +6,7 @@ export const Navbar = () => {
         <div>
             <nav className="navbar bg-dark">
                 <h1>
-                    <Link to="/"><i class="fas fa-ticket-alt"></i> Fables Cinema</Link>
+                    <Link to="/"><i className="fas fa-ticket-alt"></i> Fables Cinema</Link>
                 </h1>
                 <ul>
                     <li><Link to="/movies">Movies</Link></li>

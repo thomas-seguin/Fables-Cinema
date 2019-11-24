@@ -4,37 +4,40 @@ import {
     MOVIE_SUCCESS,
     MOVIE_FAIL,
     GET_MOVIES,
-    GET_MOVIE
+    GET_MOVIE,
+    REMOVE_MOVIE
 } from './types';
 
-// Add Movie
-export const addMovie = ({ movieName, rating, time }) => async dispatch => {
+// Add movie
+export const addMovie = (movieName, rating, time) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
-    const body = JSON.stringify({ movieName, rating, time });
+    };
+
+    const body = JSON.stringify({ movieName, rating, time })
 
     try {
-        const res = await axios.post('/api/movies', body, config);
+        const res = await axios.post(
+            `/api/movies`,
+            body,
+            config
+        );
+
         dispatch({
             type: MOVIE_SUCCESS,
             payload: res.data
         });
+
+        dispatch(setAlert('Movie Added', 'success'));
     } catch (err) {
-        const errors = err.response.data.errors;
-
-        if (errors) {
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-            console.log('Error');
-        }
-
         dispatch({
-            type: MOVIE_FAIL
+            type: MOVIE_FAIL,
+            payload: { msg: err.response.statusText, status: err.response.status }
         });
     }
-}
+};
 
 // Get all Profiles
 export const getMovies = () => async dispatch => {
@@ -66,6 +69,26 @@ export const getMovieById = movieId => async dispatch => {
         dispatch({
             type: MOVIE_FAIL,
 
+        });
+    }
+};
+
+// Delete Movie
+export const deleteMovie = (movieId) => async dispatch => {
+
+    try {
+        await axios.delete(`/api/movies/${movieId}`);
+
+        dispatch({
+            type: REMOVE_MOVIE,
+            payload: movieId
+        });
+
+        dispatch(setAlert('Movie Removed', 'success'));
+    } catch (err) {
+        dispatch({
+            type: MOVIE_FAIL,
+            payload: { msg: err.response.statusText, status: err.response.status }
         });
     }
 };

@@ -33,7 +33,7 @@ const Movies = ({ getMovies, movies: { movies, loading } }) => {
 
 Movies.propTypes = {
     getMovies: PropTypes.func.isRequired,
-    movie: PropTypes.object.isRequired,
+    movies: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
