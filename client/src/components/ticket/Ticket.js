@@ -2,8 +2,10 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { buyTickets } from '../../actions/ticket';
+import { Redirect } from 'react-router-dom';
 
-const Ticket = ({ buyTickets }) => {
+
+const Ticket = ({ buyTickets, bought }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -19,7 +21,14 @@ const Ticket = ({ buyTickets }) => {
 
         buyTickets({ name, email, ticketNum });
 
+
     };
+
+    if (bought) {
+        return <Redirect to='tickets/desc' />
+    }
+
+
 
     return (
         <Fragment>
@@ -65,7 +74,13 @@ const Ticket = ({ buyTickets }) => {
 
 Ticket.propTypes = {
     buyTickets: PropTypes.func.isRequired,
+    bought: PropTypes.object
+
 }
 
+const mapStateToProps = state => ({
+    bought: state.ticket.bought
+});
 
-export default connect(null, { buyTickets })(Ticket);
+
+export default connect(mapStateToProps, { buyTickets })(Ticket);

@@ -11,6 +11,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import Movies from './components/movies/Movies';
 import Movie from './components/movie/Movie';
 import Ticket from './components/ticket/Ticket';
+import TicketDesc from './components/ticket/TicketDesc';
 
 
 //Redux
@@ -34,6 +35,7 @@ const App = () => {
               <Route exact path="/movies" component={Movies} />
               <Route exact path="/movie/:id" component={Movie} />
               <Route exact path="/tickets" component={Ticket} />
+              <Route exact path="/tickets/desc" component={TicketDesc} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>

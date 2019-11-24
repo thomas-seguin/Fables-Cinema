@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
     BUY_TICKET,
-    TICKET_FAIL
+    TICKET_FAIL,
+    REMOVE_BOUGHT
 } from './types'
 import { setAlert } from './alert';
 
@@ -32,4 +33,10 @@ export const buyTickets = ({ name, email, ticketNum }) => async dispatch => {
             type: TICKET_FAIL
         });
     }
+}
+
+export const rBought = () => async dispatch => {
+    dispatch({
+        type: REMOVE_BOUGHT
+    });
 }

@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import MovieItem from './MovieItem';
 import { getMovies } from '../../actions/movies';
+import { rBought } from '../../actions/ticket';
 
-const Movies = ({ getMovies, movies: { movies, loading } }) => {
+const Movies = ({ rBought, getMovies, movies: { movies, loading } }) => {
     useEffect(() => {
         getMovies();
-    }, [getMovies]);
+        rBought();
+    }, [getMovies, rBought]);
 
     return (
         <Fragment>
@@ -33,6 +35,7 @@ const Movies = ({ getMovies, movies: { movies, loading } }) => {
 
 Movies.propTypes = {
     getMovies: PropTypes.func.isRequired,
+    rBought: PropTypes.func.isRequired,
     movies: PropTypes.object.isRequired,
 }
 
@@ -40,4 +43,4 @@ const mapStateToProps = state => ({
     movies: state.movies
 })
 
-export default connect(mapStateToProps, { getMovies })(Movies)
+export default connect(mapStateToProps, { getMovies, rBought })(Movies)
