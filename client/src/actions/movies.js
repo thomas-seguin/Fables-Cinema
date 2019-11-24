@@ -3,7 +3,8 @@ import { setAlert } from './alert';
 import {
     MOVIE_SUCCESS,
     MOVIE_FAIL,
-    GET_MOVIES
+    GET_MOVIES,
+    GET_MOVIE
 } from './types';
 
 // Add Movie
@@ -48,6 +49,23 @@ export const getMovies = () => async dispatch => {
     } catch (err) {
         dispatch({
             type: MOVIE_FAIL
+        });
+    }
+};
+
+// Get movie by ID
+export const getMovieById = movieId => async dispatch => {
+    try {
+        const res = await axios.get(`/api/movies/${movieId}`);
+
+        dispatch({
+            type: GET_MOVIE,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: MOVIE_FAIL,
+
         });
     }
 };

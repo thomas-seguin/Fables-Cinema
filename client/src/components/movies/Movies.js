@@ -5,7 +5,7 @@ import Spinner from '../layout/Spinner';
 import MovieItem from './MovieItem';
 import { getMovies } from '../../actions/movies';
 
-const Movies = ({ getMovies, movie: { movies, loading } }) => {
+const Movies = ({ getMovies, movies: { movies, loading } }) => {
     useEffect(() => {
         getMovies();
     }, [getMovies]);
@@ -14,9 +14,9 @@ const Movies = ({ getMovies, movie: { movies, loading } }) => {
         <Fragment>
             {loading ? <Spinner /> :
                 <Fragment>
-                    <h1 className="large text-primary">Developers</h1>
+                    <h1 className="large text-primary">Movies</h1>
                     <p className="lead">
-                        <i className="fab fa-connectdevelop"></i> Browse and connect with developers
+                        Buy A Ticket For A Movie
                 </p>
                     <div className="profiles">
                         {movies.length > 0 ? (
@@ -37,7 +37,7 @@ Movies.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    movie: state.movie
+    movies: state.movies
 })
 
 export default connect(mapStateToProps, { getMovies })(Movies)

@@ -8,3 +8,4 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const MOVIE_SUCCESS = 'MOVIE_SUCCESS';
 export const MOVIE_FAIL = 'MOVIE_FAIL';
 export const GET_MOVIES = 'GET_MOVIES';
+export const GET_MOVIE = 'GET_MOVIE';

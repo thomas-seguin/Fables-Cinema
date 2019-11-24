@@ -9,6 +9,7 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Movies from './components/movies/Movies';
+import Movie from './components/movie/Movie';
 
 
 //Redux
@@ -30,6 +31,7 @@ const App = () => {
             <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/movies" component={Movies} />
+              <Route exact path="/movie/:id" component={Movie} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>
