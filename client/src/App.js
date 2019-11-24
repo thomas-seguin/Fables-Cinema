@@ -10,6 +10,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Movies from './components/movies/Movies';
 import Movie from './components/movie/Movie';
+import Ticket from './components/ticket/Ticket';
 
 
 //Redux
@@ -32,6 +33,7 @@ const App = () => {
               <Route exact path="/login" component={Login} />
               <Route exact path="/movies" component={Movies} />
               <Route exact path="/movie/:id" component={Movie} />
+              <Route exact path="/tickets" component={Ticket} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 const MovieItem = ({ movie: { name, rating, time } }) => {
     return (
@@ -9,7 +10,7 @@ const MovieItem = ({ movie: { name, rating, time } }) => {
                 <h2>{name}</h2>
                 <h3>{rating}</h3>
                 <h3>{time}</h3>
-
+                <Link to="/tickets" className="btn btn-primary">Buy Tickets</Link>
             </div>
         </div>
     )

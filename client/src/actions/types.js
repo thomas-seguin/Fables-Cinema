@@ -9,3 +9,5 @@ export const MOVIE_SUCCESS = 'MOVIE_SUCCESS';
 export const MOVIE_FAIL = 'MOVIE_FAIL';
 export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIE = 'GET_MOVIE';
+export const BUY_TICKET = 'BUY_TICKET';
+export const TICKET_FAIL = 'TICKET_FAIL';
