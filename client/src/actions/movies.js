@@ -9,14 +9,15 @@ import {
 } from './types';
 
 // Add movie
-export const addMovie = (movieName, rating, time) => async dispatch => {
+export const addMovie = (name, rating, time) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
 
-    const body = JSON.stringify({ movieName, rating, time })
+    const body = JSON.stringify({ name, rating, time });
+    console.log(body);
 
     try {
         const res = await axios.post(
