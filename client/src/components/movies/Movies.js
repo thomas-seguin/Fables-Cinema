@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -6,11 +7,15 @@ import MovieItem from './MovieItem';
 import { getMovies } from '../../actions/movies';
 import { rBought } from '../../actions/ticket';
 
-const Movies = ({ rBought, getMovies, movies: { movies, loading } }) => {
+const Movies = ({ rBought, getMovies, movies: { movies, loading, selected } }) => {
     useEffect(() => {
         getMovies();
         rBought();
     }, [getMovies, rBought]);
+
+    if (selected) {
+        return <Redirect to='/tickets' />
+    }
 
     return (
         <Fragment>

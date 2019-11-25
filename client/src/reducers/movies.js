@@ -10,6 +10,7 @@ const initialState = {
     movie: null,
     movies: [],
     loading: true,
+    selected: false,
     error: {}
 
 }
@@ -28,6 +29,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 movie: payload,
+                selected: true,
                 loading: false
             }
         case MOVIE_SUCCESS:
